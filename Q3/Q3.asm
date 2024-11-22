@@ -62,3 +62,58 @@ factorial_end:
     pop ecx                 ; Restore ECX
     pop ebx                 ; Restore EBX
     ret
+
+; ===============================================
+; Question 3 Notes
+; ===============================================
+
+; ### Register Management
+; In x86-32, registers are divided into two main categories:
+
+; #### 1. Caller-Saved Registers
+; - **Registers:** `EAX`, `ECX`, `EDX`
+; - **Note:** These registers are **not preserved** by the callee. If the caller needs their values after a subroutine call, it must save them before invoking the subroutine.
+
+; #### 2. Callee-Saved Registers
+; - **Registers:** `EBX`
+; - **Note:** These registers must be **preserved** by the callee if they are used within a subroutine.
+
+; ### In This Program
+
+; #### Callee-Saved Register: `EBX`
+; - **Usage:** Used as a counter in the factorial subroutine.
+
+; ##### How It's Managed:
+; **Saving `EBX`**
+; ```assembly
+; push   ebx       ; Save EBX before using it
+; ```
+
+; **Restoring `EBX`**
+; ```assembly
+; pop    ebx       ; Restore EBX after use
+; ret              ; Return to caller
+; ```
+
+; ### Stack Usage
+; A stack is a structure used to store temporary data such as function parameters, return addresses, and saved registers. It follows a **Last-In-First-Out (LIFO)** approach.
+
+; ##### Pushing to the Stack
+; - Saves the current value of a register by placing it on top of the stack and moving the stack pointer down.
+
+; ##### Popping from the Stack
+; - Retrieves the last value placed on the stack and stores it back into the specified register, incrementing the stack pointer.
+
+; ### Example in the Factorial Subroutine
+
+; #### Preserving Registers
+; **Before using a callee-saved register (`EBX`):**
+; ```assembly
+; push   ebx       ; Save EBX before modifying it
+; ```
+
+; **After function operations:**
+; ```assembly
+; pop    ebx       ; Restore EBX after use
+; ret              ; Return to caller
+; ```
