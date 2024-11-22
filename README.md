@@ -1,6 +1,6 @@
 # Combined Notes for Questions 1, 2, 3 and 4
 
-### How to compile and execute the .asm file
+### How to assemble and execute the .asm file
 
 #### Step 1: Assemble the `.asm` File
 Use NASM to assemble your assembly source file into an object file.
