@@ -1,4 +1,22 @@
 # Combined Notes for Questions 1, 2, 3 and 4
+
+### How to compile and execute the .asm file
+
+#### Step 1: Assemble the `.asm` File
+Use NASM to assemble your assembly source file into an object file.
+```bash
+nasm -f elf64 -o <output_file>.o <source_file>.asm
+```
+#### Step 2: Link the Object File
+Link the object file to create an executable.
+```bash
+ld -o <executable_name> <output_file>.o
+```
+#### Step 3: Execute the Program
+Run your executable file:
+```bash
+./<executable_name>
+```
  
 ## Question 1 Notes
 
@@ -102,7 +120,7 @@ The strategic use of jump instructions (`je` and `jmp`) in this program ensures 
 
 ### Register Management
 
-In x86-64, registers are divided into two main categories:
+In x86-32, registers are divided into two main categories:
 
 #### 1. Caller-Saved Registers
 
