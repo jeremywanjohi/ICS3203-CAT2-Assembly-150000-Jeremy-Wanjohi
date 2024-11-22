@@ -231,56 +231,6 @@ The program uses memory-mapped I/O ports to control the motor and alarm. Specifi
 
 ### Conclusion
 
-The program reads the sensor value from `SENSOR_PORT` and uses conditional jumps to determine the appropriate action based on the thresholds. It manipulates specific bits using bitwise operations to control the motor and the alarm, therefore allowing for precise control based on the sensor input.1.  ### Stack Usage
+The program reads the sensor value from `SENSOR_PORT` and uses conditional jumps to determine the appropriate action based on the thresholds. It manipulates specific bits using bitwise operations to control the motor and the alarm, therefore allowing for precise control based on the sensor input.
 
-    A stack is a structure used to store temporary data such as function parameters, return addresses, and saved registers. It follows a Last-In-First-Out (LIFO) approach.
-
-    #### Key Components
-
-    ##### Pushing to the Stack
-
-    -   Saves the current value of a register by placing it on top of the stack and moving the stack pointer down.
-
-    ##### Popping from the Stack
-
-    -   Retrieves the last value placed on the stack and stores it back into the specified register.
-    -   In this program, it increments the stack pointer.
-
-    * * * * *
-
-    ### Example in the Factorial Subroutine
-
-    #### Preserving Registers
-
-    Before using a callee-saved register (`EBX`):
-
-    assembly
-
-    Copy code
-
-    `push    ebx       ; Save EBX before modifying it`
-
-    After function operations:
-
-    assembly
-
-    Copy code
-
-    `pop     ebx       ; Restore EBX to its original value
-    ret               ; Return to the main program`
-
-    * * * * *
-
-    ### Importance
-
-    -   Maintains Stability:
-
-        -   By saving and restoring registers, functions do not unintentionally alter important data, keeping the program's state consistent.
-    -   Supports Modular Code:
-
-        -   Using the stack to save registers allows the subroutine to function without affecting other parts of the program.
-
-    Copy code
-
-2.
-
+---
