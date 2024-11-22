@@ -18,8 +18,10 @@ Run your executable file:
 ```bash
 ./<executable_name>
 ```
-**Note:**  
-Detailed documentation for each task is provided within the corresponding `.asm` file. Please refer to the `.asm` file for in-depth explanations, code comments, and implementation details related to each question.
+
+**⚠️ NOTE:**  
+**See the `.asm` file for detailed explanations, comments, and implementation details.**
+
 
 ## Task 1 
 
