@@ -114,8 +114,6 @@ In x86-64, registers are divided into two main categories:
 - **Registers:** `EBX`
 - **Note:** These registers must be **preserved** by the callee if they are used within a subroutine.
 
----
-
 ### In This Program
 
 #### Callee-Saved Register: `EBX`
