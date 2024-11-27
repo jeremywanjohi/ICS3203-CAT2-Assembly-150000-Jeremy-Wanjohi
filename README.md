@@ -7,12 +7,12 @@
    ```bash
    nasm -f elf32 -o Q1.o Q1.asm
    ```
-2.**Link the object file to create an executable:**
+2. **Link the object file to create an executable:**
    ```bash
    ld -m elf_i386 Q1.o -o Q1
    ```
 
-3.**Run The Program**
+3. **Run The Program**
    ```bash
    ./Q1
    ```
@@ -22,11 +22,11 @@
    ```bash
    nasm -f elf32 -o Q2.o Q2.asm
    ```
-2.**Link the object file to create an executable:**
+2. **Link the object file to create an executable:**
    ```bash
    gcc -m32 -no-pie Q2.o -o Q2
    ```
-3.**Run The Program**
+3. **Run The Program**
    ```bash
    /./Q2
    ```
@@ -36,12 +36,12 @@
    ```bash
    nasm -f elf32 -o Q3.o Q3.asm
    ```
-2.**Link the object file to create an executable:**
+2. **Link the object file to create an executable:**
    ```bash
    gcc -m32 -no-pie Q3.o -o Q3
    ```
 
-3.**Run The Program**
+3. **Run The Program**
    ```bash
    ./Q3
    ```
@@ -51,12 +51,12 @@
    ```bash
    nasm -f elf32 -o Q4.o Q4.asm
    ```
-2.**Link the object file to create an executable:**
+2. **Link the object file to create an executable:**
    ```bash
    ld -m elf_i386 Q4.o -o Q4
    ```
 
-3.**Run The Program**
+3. **Run The Program**
    ```bash
    ./Q4
    ```
