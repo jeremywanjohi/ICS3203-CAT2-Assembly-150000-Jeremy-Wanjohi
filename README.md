@@ -1,23 +1,65 @@
 # Overview for Tasks 1, 2, 3 and 4
 
+## **Commands for Running Task 1-4**
 
-### How to assemble and execute the .asm file
+## **Task 1: Number Sign Detection**
+1. **Assemble the `.asm` file into an object file:**
+   ```bash
+   nasm -f elf32 -o Q1.o Q1.asm
+   ```
+2. **Link the object file to create an executable:**
+   ```bash
+   ld -m elf_i386 Q1.o -o Q1
+   ```
 
-#### Step 1: Assemble the `.asm` File
-Use NASM to assemble your assembly source file into an object file.
-```bash
-nasm -f elf64 -o <output_file>.o <source_file>.asm
-```
-#### Step 2: Link the Object File
-Link the object file to create an executable.
-```bash
-ld -o <executable_name> <output_file>.o
-```
-#### Step 3: Execute the Program
-Run your executable file:
-```bash
-./<executable_name>
-```
+3. **Run The Program**
+   ```bash
+   ./Q1
+   ```
+   
+## **Task 2: Array Reversal**
+1. **Assemble the `.asm` file into an object file:**
+   ```bash
+   nasm -f elf32 -o Q2.o Q2.asm
+   ```
+2. **Link the object file to create an executable:**
+   ```bash
+   gcc -m32 -no-pie Q2.o -o Q2
+   ```
+3. **Run The Program**
+   ```bash
+   /./Q2
+   ```
+
+## **Task 3: Factorial Calculation**
+1. **Assemble the `.asm` file into an object file:**
+   ```bash
+   nasm -f elf32 -o Q3.o Q3.asm
+   ```
+2. **Link the object file to create an executable:**
+   ```bash
+   gcc -m32 -no-pie Q3.o -o Q3
+   ```
+
+3. **Run The Program**
+   ```bash
+   ./Q3
+   ```
+
+## **Task 4: Sensor-Controlled Motor and Alarm**
+1. **Assemble the `.asm` file into an object file:**
+   ```bash
+   nasm -f elf32 -o Q4.o Q4.asm
+   ```
+2. **Link the object file to create an executable:**
+   ```bash
+   ld -m elf_i386 Q4.o -o Q4
+   ```
+
+3. **Run The Program**
+   ```bash
+   ./Q4
+   ```
 
 **⚠️ NOTE:**  
 **See the `.asm` file for detailed explanations, comments, and implementation details.**
@@ -43,6 +85,7 @@ The strategic use of jump instructions (`je` and `jmp`) in this program ensures 
 ---
 
 ## Task 2 
+
 ### Overview
 The aim of this task was to implement an assembly program that accepts an array of five integers from the user, reverses the array in place without using additional memory, and then outputs the reversed array. 
 

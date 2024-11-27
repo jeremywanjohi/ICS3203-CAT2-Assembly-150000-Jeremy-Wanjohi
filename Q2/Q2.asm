@@ -23,7 +23,7 @@ section .data
 ; ===============================================
 
 section .text
-    global _main
+    global main
     extern printf, scanf
 
 ; ===============================================
@@ -31,9 +31,9 @@ section .text
 ; - Sets the loop counter `ECX` to 0 to start input from the first array element.
 ; ===============================================
 
-_main:
+main:
     ; Initialize loop counter for input (ECX = 0 to 4)
-    mov ecx, 0
+    xor ecx,ecx
 
 ; ===============================================
 ; #### Input Loop
@@ -53,7 +53,8 @@ input_loop:
     ; Print prompt
     push prompt                                 ; Push address of prompt string
     call printf                                 ; Call printf to display prompt
-    add esp, 4                                  ; Clean up stack (remove prompt address)
+    add esp, 4
+                                      ; Clean up stack (remove prompt address)
 
     ; Read integer from user
     lea eax, [array + ecx*4]                    ; Load address of array[ECX] into EAX
@@ -127,6 +128,8 @@ print_result:
 
     mov eax, 0                                   ; Return 0
     ret                                          ; Exit program
+
+section .note.GNU-stack noalloc noexec nowrite progbits
 
 ; ===============================================
 ; ### Challenges with Handling Memory Directly

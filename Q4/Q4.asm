@@ -1,10 +1,12 @@
 section .data
-    SENSOR_PORT     equ 0x1000      
-    MOTOR_PORT      equ 0x2000     
-    ALARM_PORT      equ 0x3000      
+    HIGH_THRESHOLD  db 80        ; High water level threshold
+    MOD_THRESHOLD   db 50        ; Moderate water level threshold
 
-    HIGH_THRESHOLD  db 80           ; High water level threshold
-    MOD_THRESHOLD   db 50           ; Moderate water level threshold
+section .bss
+    SENSOR_PORT     resb 1       ; Simulated sensor port
+    MOTOR_PORT      resb 1       ; Simulated motor port
+    ALARM_PORT      resb 1       ; Simulated alarm port
+
 
 section .text
     global _start
@@ -19,8 +21,7 @@ _start:
 
 
 control_program:
-    mov dx, SENSOR_PORT         ; Load sensor port address into DX
-    in al, dx                   ; Read byte from port into AL
+    mov al, [SENSOR_PORT]       ; Simulate reading from the sensor port
 
     cmp al, [HIGH_THRESHOLD]
     jae HIGH_LEVEL              ; If sensor >= HIGH_THRESHOLD, jump to HIGH_LEVEL
@@ -45,30 +46,26 @@ MODERATE_LEVEL:
     ret
 
 ; Subroutine: TURN_ON_MOTOR
-
 TURN_ON_MOTOR:
-    mov dx, MOTOR_PORT
-    in al, dx                   ; Read current motor state
+    mov al, [MOTOR_PORT]        
     or al, 0x01                 ; Set bit 0 to turn on motor
-    out dx, al                  ; Write back to motor port
+    mov [MOTOR_PORT], al        ; Simulate writing back to motor port
     ret
 
 ; Subroutine: STOP_MOTOR
-
 STOP_MOTOR:
-    mov dx, MOTOR_PORT
-    in al, dx                   ; Read current motor state
+    mov al, [MOTOR_PORT]        
     and al, 0xFE                ; Clear bit 0 to stop motor
-    out dx, al                  ; Write back to motor port
+    mov [MOTOR_PORT], al        ; Simulate writing back to motor port
     ret
 
 ; Subroutine: TRIGGER_ALARM
 TRIGGER_ALARM:
-    mov dx, ALARM_PORT
-    in al, dx                   ; Read current alarm state
+    mov al, [ALARM_PORT]        
     or al, 0x01                 ; Set bit 0 to trigger alarm
-    out dx, al                  ; Write back to alarm port
+    mov [ALARM_PORT], al        ; Simulate writing back to alarm port
     ret
+
 
 ; ===============================================
 ; Question 4 Notes

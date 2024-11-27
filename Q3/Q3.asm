@@ -5,13 +5,12 @@ section .data
 
 section .bss
     number resd 1
-    result resd 1
 
 section .text
-    global _start
+    global main
     extern printf, scanf
 
-_start:
+main:
     ; Print prompt
     push prompt
     call printf
@@ -24,14 +23,14 @@ _start:
     add esp, 8
 
     ; Load the input number into EAX
-    mov eax, [number]
+    mov eax, dword [number]
 
     ; Call factorial subroutine
     call factorial
 
     ; Print result
     push eax                ; Push factorial result
-    push [number]           ; Push the original number
+    push dword [number]           ; Push the original number
     push output_format
     call printf
     add esp, 12
@@ -44,24 +43,23 @@ _start:
 factorial:
     push ebx                ; Preserve EBX
     push ecx                ; Preserve ECX
-    push edx                ; Preserve EDX
 
-    mov ebx, eax            ; Move number to EBX
-    mov eax, 1              ; Initialize result to 1
-    mov ecx, ebx            ; Set ECX as loop counter
+    mov ebx, eax            ; Move input number to EBX
+    mov eax, 1              ; Initialize result (EAX = 1)
 
     cmp ebx, 0              ; Handle factorial of 0
     je factorial_end
 
 factorial_loop:
-    mul ecx                 ; EAX = EAX * ECX
-    loop factorial_loop     ; Decrement ECX and loop if not zero
+    mul ebx                 ; Multiply EAX by EBX
+    dec ebx                 ; Decrement EBX
+    jnz factorial_loop      ; Repeat if EBX != 0
 
 factorial_end:
-    pop edx                 ; Restore EDX
     pop ecx                 ; Restore ECX
     pop ebx                 ; Restore EBX
     ret
+
 
 ; ===============================================
 ; Question 3 Notes
