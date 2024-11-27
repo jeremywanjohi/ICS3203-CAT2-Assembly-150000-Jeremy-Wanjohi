@@ -1,6 +1,6 @@
 # Overview for Tasks 1, 2, 3 and 4
 
-# **Commands for Running Task 1-4**
+## **Commands for Running Task 1-4**
 
 ## **Task 1: Number Sign Detection**
 1. **Assemble the `.asm` file into an object file:**
